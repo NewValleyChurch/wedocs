@@ -106,7 +106,7 @@ function wedocs_register_post_type() {
         'label'               => __( 'Doc', 'wedocs' ),
         'description'         => __( 'Post type for Documentation ', 'wedocs' ),
         'labels'              => $labels,
-        'supports'            => array( 'title', 'editor', 'author', 'thumbnail', 'page-attributes', 'custom-fields', 'categories' ),
+        'supports'            => array( 'title', 'editor', 'author', 'thumbnail', 'page-attributes', 'custom-fields'),
         'hierarchical'        => true,
         'public'              => true,
         'show_ui'             => true,
@@ -125,6 +125,13 @@ function wedocs_register_post_type() {
 
 }
 add_action( 'init', 'wedocs_register_post_type', 0 );
+
+function add_tags_categories() {
+register_taxonomy_for_object_type('category', 'wedocs');
+register_taxonomy_for_object_type('post_tag', 'wedocs');
+}
+add_action('init', 'add_tags_categories');
+
 
 function wedocs_docs_search_filter( $query ) {
 
