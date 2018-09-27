@@ -119,6 +119,7 @@ function wedocs_register_post_type() {
         'has_archive'         => false,
         'exclude_from_search' => false,
         'publicly_queryable'  => true,
+        'taxonomies'          => array('post_tag','category'),
         'capability_type'     => 'post',
     );
     register_post_type( 'docs', $args );
