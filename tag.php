@@ -24,6 +24,11 @@ $args = array(
 // The Query
 $doc_query = new WP_Query( $args );
 
+// Tag RSS Info
+$tag_id = get_query_var('tag_id');
+ 
+echo '<div class="tag-feed"><p><a href="' . get_tag_feed_link( $tag_id) . '" title="Subscribe to this tag" rel="nofollow">Subscribe</a></p></div>';
+ 
 // The Loop
 if ( $doc_query->have_posts() ) {
 

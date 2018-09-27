@@ -17,6 +17,38 @@ require_once locate_template( '/lib/custom.php' );          // Custom functions
 require_once locate_template( '/lib/customizer.php' );      // Theme customizer
 require_once locate_template( '/lib/walker-docs.php' );      // Theme customizer
 
+function cptui_register_my_taxes_changelogs() {
+
+	/**
+	 * Taxonomy: Change Logs.
+	 */
+
+	$labels = array(
+		"name" => __( "Change Logs", "" ),
+		"singular_name" => __( "Change Log", "" ),
+	);
+
+	$args = array(
+		"label" => __( "Change Logs", "" ),
+		"labels" => $labels,
+		"public" => true,
+		"hierarchical" => false,
+		"label" => "Change Logs",
+		"show_ui" => true,
+		"show_in_menu" => true,
+		"show_in_nav_menus" => true,
+		"query_var" => true,
+		"rewrite" => array( 'slug' => 'changelogs', 'with_front' => true, ),
+		"show_admin_column" => false,
+		"show_in_rest" => false,
+		"rest_base" => "changelogs",
+		"show_in_quick_edit" => false,
+	);
+	register_taxonomy( "changelogs", array( "page" ), $args );
+}
+
+add_action( 'init', 'cptui_register_my_taxes_changelogs' );
+
 
 function wedocs_ajax_feedback() {
     check_ajax_referer( 'wedocs-ajax' );
