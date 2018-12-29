@@ -3,7 +3,7 @@
 
     <div class="inside">
         <?php the_excerpt(); ?>
-
+hot tamale
         <?php get_template_part( 'templates/content', 'feedback' ); ?>
     </div>
 </li>
